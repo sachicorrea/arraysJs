@@ -3,8 +3,8 @@ var examStudent = [];
 var actStudent = [];
 var projStudent = [];
 
-function scores(){
-
+function include()
+{
     /* Student's name */
     var inputText = document.getElementById("student").value;
 
@@ -44,7 +44,7 @@ function scores(){
 
     document.getElementById("student-activity").innerHTML = pval3;
 
-    /* Activities */
+    /* Projects */
     var inputText4 = document.getElementById("projects").value;
 
     projStudent.push(inputText4);
@@ -56,4 +56,105 @@ function scores(){
     }
 
     document.getElementById("student-project").innerHTML = pval4;
+}
+
+/* 2nd Activity */
+
+var costRegistration = new Array();
+
+function registration()
+{
+    var studentName = document.getElementById("admitted").value;
+    
+    var studentEcono = document.getElementById("economic-level").value;
+   
+    var studentAge = document.getElementById("student-age").value;
+
+    var wageValue = document.getElementById("wage").value;
+
+    var a;
+    var total;
+
+    if(studentEcono == 1)
+    {
+        a = 0.5;
+    }
+    else if(studentEcono == 2)
+    {
+        a = 1;
+    }
+
+    else if(studentEcono == 3)
+    {
+        a = 1.5;
+    }
+
+    else if(studentEcono >=4 && studentEcono <= 6)
+    {
+        a = 2;
+    }
+
+    else
+    {
+        alert("Enter a student socio-economical level between 1 and 6");
+    }
+
+    var subtotal;
+    var discount;
+
+    function studentRegistr(a,b)
+    {
+        subtotal = a * wageValue;
+        discount = b * subtotal;
+        return subtotal - discount;
+    }
+
+    if(studentAge < 25 && studentAge >= 0)
+    {
+        total = studentRegistr(a,0.1);
+    }
+
+    else
+    {
+        total = studentRegistr(a,0.2);
+    }
+
+    var cost = {};
+
+    cost.nameStud = studentName;
+    cost.subtotalStud = subtotal;
+    cost.discountStud = discount;
+    cost.totalStud = total;
+
+    costRegistration.push(cost);
+
+    /*console.log(costRegistration);*/
+
+    createTable();
+}
+
+function createTable()
+{
+    var textTable = "<table class='table'><thead><tr><th scope='col'>Student's Name</th><th scope='col'>Subtotal Registration</th><th scope='col'>Discount</th><th scope='col'>Total Registration</th><th scope='col'>Delete Registration</th></tr></thead><tbody>";
+
+    for(i=0; i < costRegistration.length; i++)
+    {
+        textTable += "<tr>";
+        textTable += "<td>" + costRegistration[i].nameStud + "</td>";
+        textTable += "<td>" + costRegistration[i].subtotalStud + "</td>";
+        textTable += "<td>" + costRegistration[i].discountStud + "</td>";
+        textTable += "<td>" + costRegistration[i].totalStud + "</td>";
+        textTable += "<td><button class='btn btn-danger' onclick='delRegistration(" + i + ")'>Delete</button></td>";
+        textTable += "</tr>";
+    }
+
+    textTable = textTable + "</tbody></table>";
+
+    document.getElementById("table-registration").innerHTML = textTable;
+}
+
+function delRegistration(position)
+{
+    costRegistration.splice(position,1);
+    createTable();
 }

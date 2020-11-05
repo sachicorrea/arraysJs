@@ -11,24 +11,24 @@
 </head>
 
 <body>
-    <p> La nota final de la materia algoritmos se calcula de la siguiente manera.</p>
-    
-    <ul>
-        <li>30% Evaluaciones.</li>
-        <li>35% Talleres.</li>
-        <li>35% Proyecto.</li>
-    </ul>
-    
-    <p>Las notas se asignan con una puntuación entre 1 y 10</p> 
-
-    <ul>
-        <li> Crear un formulario que solicite el nombre, la nota de evaluaciones, talleres y proyecto de cada uno de los estudiantes.</li>
-        <li>Insertar un botón que agregue a un objeto esos datos, además que calcule la nota final de cada estudiante.</li>
-        <li>Y también la agregue al objeto, y ese objeto lo agregue a un arreglo.</li>
-        <li>Insertar otro botón que muestre todos los datos de los estudiantes. Crear otro botón que muestre la cantidad de estudiantes que aprobaron y no aprobaron sabiendo que aprueban con el 70%</li>
-    </ul>
-
     <div class="container">
+        <p> La nota final de la materia algoritmos se calcula de la siguiente manera.</p>
+    
+        <ul>
+            <li>30% Evaluaciones.</li>
+            <li>35% Talleres.</li>
+            <li>35% Proyecto.</li>
+        </ul>
+        
+        <p>Las notas se asignan con una puntuación entre 1 y 10</p> 
+
+        <ul>
+            <li> Crear un formulario que solicite el nombre, la nota de evaluaciones, talleres y proyecto de cada uno de los estudiantes.</li>
+            <li>Insertar un botón que agregue a un objeto esos datos, además que calcule la nota final de cada estudiante.</li>
+            <li>Y también la agregue al objeto, y ese objeto lo agregue a un arreglo.</li>
+            <li>Insertar otro botón que muestre todos los datos de los estudiantes. Crear otro botón que muestre la cantidad de estudiantes que aprobaron y no aprobaron sabiendo que aprueban con el 70%</li>
+        </ul>
+
         <h2>Form</h2>
         <form>
             <div class="form-group">
@@ -46,13 +46,11 @@
             </div>
             
 
-            <button type="button" class="btn btn-outline-secondary btn-lg" onclick="scores()">Try it!</button>
+            <button type="button" class="btn btn-outline-secondary btn-lg" onclick="include()">Try it!</button>
         </form>
-    </div>
-    <br>
+        <br>
 
-    <div class="container">
-        <h2>Results</h2>            
+        <h2>Resume General Scores</h2>            
         
         <table class="table table-striped">
             <thead>
@@ -73,7 +71,55 @@
                 </tr>
             </tbody>
         </table>
+        <hr>
+
+        <!-- Second Activity -->
+
+        <p class="h1">2nd Activity</p>
+
+        <p>En una universidad pública varios estudiantes han pasado el examen de admisión y se necesita calcular el costo que tendrá que pagar cada uno por la matricula.<span><br>El costo de la matricula se calcula en base a una evaluación socioeconómica y de acuerdo a su edad. De acuerdo al estrato, el valor de la matricula se calcula de la siguiente forma.</span></p>
+        
+        <ul>
+            <li>Para estratos 1, el costo de la matricula es medio salario mínimo mensual legal vigente.</li>
+            <li>Para estratos 2, el costo de la matricula es 1 SMMLV</li>
+            <li>Para estratos 3, el costo de la matricula es 1.5 SMMLV</li>
+            <li>Para otros estratos el costo de la matricula es 2 SMMLV</li>
+        </ul>
+                
+        <p>Nota. Un SMMLV equivale a $900000<span><br>Aparte de ello, de acuerdo a la edad, se obtiene un descuento en el valor de la matricula.</span></p>
+
+        <ul>
+            <li>Si el admitido es menor de 25 años obtiene un 10% de descuento sobre el valor de la matricula.</li>
+            <li>Si su edad es mayor o igual a 25 años obtiene un 20% de descuento sobre el valor de la matricula.</li>
+        </ul>
+
+        <p>El programa deberá solicitar el nombre de los admitidos, su estrato y su edad. En base a estos datos calcular el valor de la matricula, el descuento y el valor de la matricula con descuento por cada uno de los estudiantes. Estos datos deben ser almacenados en un objeto y a su vez en un arreglo.<span><br>Con otro botón se mostrarán todos los estudiantes, y con otro botón se mostrará un reporte de cuantos admitidos son de estrato 1, cuantos de estrato 2, cuantos de estrato 3 y cuantos de otro estrato.</span></p>
+        
+        <div class="container">
+            <p class="h2">Students' Form</p>
+            <form>
+                <div class="form-group">
+                    <label for="student-name">Enter admitted name</label>
+                    <input type="text" class="form-control" id="admitted" placeholder="Admitted's Name" name=" admitted">
+
+                    <label for="exams-score">Enter student's socio-economical level</label>
+                    <input type="number" class="form-control" id="economic-level" placeholder="Enter a number between 1 and 6" name="economic-level")>
+
+                    <label for="activities-score">Enter student's age</label>
+                    <input type="number" class="form-control" id="student-age" placeholder="Age" name="student-age")>
+
+                    <label for="activities-score">Enter annual minimum wage</label>
+                    <input type="number" class="form-control" id="wage" placeholder="Enter minimun wage value" name="wage")>
+                </div>
+                
+                <button type="button" class="btn btn-outline-secondary btn-lg" onclick="registration()">Try it!</button>
+            </form>
+        </div>
+        <br>
+
+        <p id="table-registration"></p>
     </div>
+    
 
     <!-- jQuery, Bootstrap and Popper.js -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
